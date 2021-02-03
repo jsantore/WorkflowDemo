@@ -31,8 +31,10 @@ func robotRunLoop(lightSensor *aio.GroveLightSensorDriver, soundSensor *aio.Grov
 		time.Sleep(time.Second)
 		if ledOn {
 			gpg.SetLED(1, 0, 0, 0)
+			ledOn = false
 		} else {
 			gpg.SetLED(1, 200, 200, 200)
+			ledOn = !ledOn
 		}
 		//gpg.SetMotorDps(g  20)
 		//gpg.Start()
