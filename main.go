@@ -19,6 +19,7 @@ import (
 //add
 func robotRunLoop(lightSensor *aio.GroveLightSensorDriver, soundSensor *aio.GroveSoundSensorDriver, gpg *g.Driver) {
 	ledOn := true
+	gpg.SetMotorDps(g.MOTOR_LEFT, 50)
 	for {
 		sensorVal, err := lightSensor.Read()
 		if err != nil {
@@ -38,7 +39,7 @@ func robotRunLoop(lightSensor *aio.GroveLightSensorDriver, soundSensor *aio.Grov
 			gpg.SetLED(1, 200, 200, 200)
 			ledOn = !ledOn
 		}
-		gpg.SetMotorDps(g.MOTOR_LEFT, 20)
+
 		//gpg.Start()
 	}
 }
